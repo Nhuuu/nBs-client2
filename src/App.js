@@ -20,11 +20,31 @@ class App extends Component {
 
   componentDidMount = () => {
     // GET USER INFO
+    this.getUser();
   }
 
   getUser = () => {
-    // TODO: SEE IF THERE'S A TOKEN
+    // SEE IF THERE'S A TOKEN
+    let token = localStorage.getItem('serverToken');
+
     // IF THERE IS, TRY TO GET USER INFO
+    if (token) {
+      console.log(`Found token in ls ${token}`);
+      axios.get(`${SERVER_URL}/auth/current/user`, {
+        // Send a header with the token in it
+        headers: {'Authorization': `Bearer ${token}`}
+      }) // Axios works like fetch
+      .then(response=>{
+        console.log('success')
+      })
+      .catch(err=>{
+        console.log(`Bad News 🐻, Error looking for token ${err}, ${err.response}`);
+        this.setState({ user: null })
+      })
+    } else {
+      console.log('No token in ls')
+      this.setState({ user: null })
+    }
   }
 
   render() {
