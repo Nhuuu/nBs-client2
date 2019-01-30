@@ -30,9 +30,10 @@ class Signup extends Component {
       // Assume we have a token that we should save to local storage
       localStorage.setItem('serverToken', response.data.token);
       // Next we need to update... somehow?
+      this.props.updateUser();
     })
     .catch(err=>{
-      console.log(`🐻 ERROR when submiting error form ${err}`)
+      console.log(`🐻 ERROR when submiting login form ${err}`)
     })
   }
 

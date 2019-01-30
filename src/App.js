@@ -30,12 +30,13 @@ class App extends Component {
     // IF THERE IS, TRY TO GET USER INFO
     if (token) {
       console.log(`Found token in ls ${token}`);
-      axios.get(`${SERVER_URL}/auth/current/user`, {
+      axios.post(`${SERVER_URL}/auth/current/user`, {
         // Send a header with the token in it
         headers: {'Authorization': `Bearer ${token}`}
       }) // Axios works like fetch
       .then(response=>{
-        console.log('success')
+        console.log('success', response.data.user);
+        this.setState({ user: response.data.user })
       })
       .catch(err=>{
         console.log(`Bad News 🐻, Error looking for token ${err}, ${err.response}`);
@@ -52,13 +53,13 @@ class App extends Component {
       <div className="App">
         <Router>
           <div className="container">
-            <Nav user={this.state.user} />
+            <Nav user={this.state.user} updateUser={this.getUser} />
             <Route exact path="/" component={Home} />
             <Route path="/login" component={
-              () => (<Login user={this.state.user} />)
+              () => (<Login user={this.state.user} updateUser={this.getUser} />)
             } />
             <Route path="/signup" component={
-              () => (<Signup user={this.state.user} />)
+              () => (<Signup user={this.state.user} updateUser={this.getUser} />)
             } />
             <Route path="/profile" component={
               () => (<Profile user={this.state.user} />)
