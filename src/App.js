@@ -9,6 +9,7 @@ import Login from './auth/Login';
 import Nav from './layout/Nav';
 import Profile from './Profile';
 import Signup from './auth/Signup';
+import DrinkList from './DrinkList';
 
 class App extends Component {
   constructor(props){
@@ -64,6 +65,10 @@ class App extends Component {
             <Route path="/profile" component={
               () => (<Profile user={this.state.user} />)
             } />
+            {/*Check on this route*/}
+            <Route path="/drinklist" component={
+              () => (<DrinkList user={this.state.user} updateUser={this.getUser} />)
+            } />             
           </div>
         </Router>
         <Footer />

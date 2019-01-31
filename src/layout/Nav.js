@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../logo.svg';
+import DrinkList from '../DrinkList';
 
 class Nav extends Component {
   handleLogout = (e) => {
@@ -17,6 +18,7 @@ class Nav extends Component {
           <span>
             <a onClick={this.handleLogout}>Logout</a>
             <Link to="/profile">Profile</Link>
+            <Link to="/drinklist">Drinks</Link>
           </span>
         );
     }
