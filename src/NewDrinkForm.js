@@ -18,18 +18,17 @@ class NewDrinkForm extends Component {
   }
   // Helper function
   storeInput = e => {
-    const user = JSON.stringify(this.props.user);
-
     // Update state to reflect user input
     let newState = e.target.value;
     this.setState({ 
-      user: user.id,
       [e.target.name]: newState 
     })
   }
 
   postDrink = (e) => {
-		e.preventDefault()
+    e.preventDefault()
+    const user = JSON.stringify(this.props.user);
+    this.setState({ user: user.id });
 		// console.log(this.state)
 		fetch(SERVER_URL+'/drinks/new', {
 			method: 'POST',
