@@ -71,7 +71,7 @@ class DrinkList extends Component {
 			        	{/*{drinkItem}*/}
 			          {/*{more}*/}
           </div>
-          {/*{form}*/}
+          {form}
         </div>
 		)
 	}

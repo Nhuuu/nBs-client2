@@ -1,18 +1,15 @@
 import React, {Component} from 'react'
+import SERVER_URL from './constants/server';
 
 class NewDrinkForm extends Component {
 	render(){
+    const user = JSON.stringify(this.props.user)
 		return (
       <div>
-        <form action="/drinkgs" method="POST">
-          <legend class="ph0 mh0 fw6 clip">Sign Up</legend>
+        <form action={`${SERVER_URL}drinks/new`} method="POST">
           <div class="mt3">
-            <label class="db fw4 lh-copy f6" for="name">Name:</label>
+            <label class="db fw4 lh-copy f6" for="name">Name</label>
             <input class="pa2 input-reset ba bg-transparent w-100 measure" type="text" name="name"  id="name" />
-          </div>
-          <div class="mt3">
-            <label class="db fw4 lh-copy f6" for="brand">Brand</label>
-            <input class="pa2 input-reset ba bg-transparent w-100 measure" type="text" name="brand"  id="brand" />
           </div>
           <div class="mt3">
             <label class="db fw4 lh-copy f6" for="brand">Brand</label>
@@ -30,7 +27,8 @@ class NewDrinkForm extends Component {
             <label class="db fw4 lh-copy f6" for="price">Price</label>
             <input class="pa2 input-reset ba bg-transparent w-100 measure" type="number" name="price"  id="price" />
           </div>
-          <input type="hidden" value={this.props.user.id} />
+          <input type="hidden" value={user.id} />
+          <div class="mt3"><input class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6" type="submit" value="Add a Drink" /></div>
         </form>
       </div>
     )
