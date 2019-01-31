@@ -55,6 +55,7 @@ const drinks = this.state.drinks.map((drink, i) => {
       <h3>What are you in the mood for?</h3>
     const form = this.state.form === 'new' ? 
       <NewDrinkForm 
+        user={this.props.user}
         rerender={this.getDrink} 
         /> : 
       <EditDrinkForm 
