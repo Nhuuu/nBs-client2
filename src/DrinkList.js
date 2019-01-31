@@ -23,7 +23,6 @@ class DrinkList extends Component {
     this.setState({ current: obj })
   }	  
 
-
   getDrinks = () => {
     fetch(SERVER_URL)
     .then(response => {
@@ -31,7 +30,7 @@ class DrinkList extends Component {
     })
     .then(json => {
       console.log(json)
-      this.setState({ drinks: json })
+      this.setState({ drinkItem: json })
     })
     .catch(err => {
       console.log("Error fetching drinks!", err)
@@ -43,35 +42,37 @@ class DrinkList extends Component {
   }
 
 	render(){
-const drinks = this.state.drinks.map((drink, i) => {
+		const drinkItem = this.state.drinks.map((drink, i) => {
       return <Drink key={i} drink={drink} rerender={this.getDrinks} changeCurrent={this.changeCurrent} current={this.state.current} />
     })
-    const more = this.state.current._id ? 
-      <ShowDrink 
-        bounty={this.state.current} 
-        key={this.state.current._id} 
-        toggleForm={this.toggleForm} 
-        /> :
-      <h3>What are you in the mood for?</h3>
-    const form = this.state.form === 'new' ? 
-      <NewDrinkForm 
-        rerender={this.getDrink} 
-        /> : 
-      <EditDrinkForm 
-        current={this.state.current} 
-        rerender={this.getDrinks}
-        changeCurrent={this.changeCurrent} 
-        toggleForm={this.toggleForm}
-        />
+    // const more = this.state.current._id ? 
+    //   <ShowDrink 
+    //     bounty={this.state.current} 
+    //     key={this.state.current._id} 
+    //     toggleForm={this.toggleForm} 
+    //     /> :
+    //   <h3>What are you in the mood for?</h3>
+    // const form = this.state.form === 'new' ? 
+    //   <NewDrinkForm 
+    //     rerender={this.getDrink} 
+    //     /> : 
+    //   <EditDrinkForm 
+    //     current={this.state.current} 
+    //     rerender={this.getDrinks}
+    //     changeCurrent={this.changeCurrent} 
+    //     toggleForm={this.toggleForm}
+    //     />
     return (
         <div className="App">
           <h1>Give me Drinks!</h1>
-          {drinks}
-          {more}
-          {form}
+          <div className="drink-list">
+			        	{/*{drinkItem}*/}
+			          {/*{more}*/}
+          </div>
+          {/*{form}*/}
         </div>
 		)
 	}
 }
 
-export default Drink;
+export default DrinkList;
