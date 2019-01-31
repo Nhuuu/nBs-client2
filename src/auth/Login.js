@@ -21,7 +21,7 @@ class Login extends Component {
     // TODO: SEND DATA TO SERVER
     console.log(`About to login ${this.state}`);
 
-    axios.post(`${SERVER_URL}/auth/login`, this.state)
+    axios.post(`${SERVER_URL}auth/login`, this.state)
     .then(response=>{
       console.log(`Success in the login post! ${response}`)
       localStorage.setItem('serverToken', response.data.token);

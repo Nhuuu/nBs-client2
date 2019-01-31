@@ -2,7 +2,11 @@ import React, {Component} from 'react'
 
 class NewDrinkForm extends Component {
 	render(){
-		return
+		return (
+      <div>
+        
+      </div>
+    )
 	}
 }
 
