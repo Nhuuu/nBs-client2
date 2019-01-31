@@ -63,10 +63,10 @@ class DrinkList extends Component {
     //     toggleForm={this.toggleForm}
     //     />
     return (
-        <div className="App">
+        <div className="drink-list">
           <h1>Give me Drinks!</h1>
-          <div className="drink-list">
-			        	{/*{drinkItem}*/}
+          <div className="drink-item">
+			        	{drinkItem}
 			          {/*{more}*/}
           </div>
           {/*{form}*/}

@@ -65,7 +65,6 @@ class App extends Component {
             <Route path="/profile" component={
               () => (<Profile user={this.state.user} />)
             } />
-            {/*Check on this route*/}
             <Route path="/drinklist" component={
               () => (<DrinkList user={this.state.user} updateUser={this.getUser} />)
             } />             
