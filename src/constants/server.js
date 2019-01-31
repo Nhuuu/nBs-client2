@@ -1,1 +1,1 @@
-export default 'https://nbs-hack.herokuapp.com/';
+export default 'https://nbs-hack.herokuapp.com';
