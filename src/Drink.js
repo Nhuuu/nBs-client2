@@ -24,7 +24,7 @@ class Drink extends Component {
 		const less = (<button onClick={() => this.props.changeCurrent({})}>Less</button>)
 		let button = this.props.current === this.props.drink ? less : more
 		return (
-			<div className="poster">
+			<div className="drink">
 				<h3>{this.props.drink.name}</h3>
 				{button}
 				<button onClick={this.deleteDrink}>Delete</button>
