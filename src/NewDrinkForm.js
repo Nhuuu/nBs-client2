@@ -29,14 +29,14 @@ class NewDrinkForm extends Component {
           </div>
           <div class="mt3">
             <label class="db fw4 lh-copy f6" for="desc">Description</label>
-            <input class="pa2 input-reset ba bg-transparent w-100 measure" type="number" name="desc"  id="desc" />
+            <input class="pa2 input-reset ba bg-transparent w-100 measure" type="text" name="desc"  id="desc" />
           </div>
           <div class="mt3">
             <label class="db fw4 lh-copy f6" for="img">Image Url</label>
-            <input class="pa2 input-reset ba bg-transparent w-100 measure" type="number" name="img"  id="img" />
+            <input class="pa2 input-reset ba bg-transparent w-100 measure" type="text" name="img"  id="img" />
           </div>
           <input type="hidden" value={user.id} />
-          <div class="mt3"><input class="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6" type="submit" value="Add a Drink" /></div>
+          <div class="mt3"><input class="b mb5 ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6" type="submit" value="Add a Drink" /></div>
         </form>
       </div>
     )
