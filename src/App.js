@@ -10,6 +10,7 @@ import Nav from './layout/Nav';
 import Profile from './Profile';
 import Signup from './auth/Signup';
 import DrinkList from './DrinkList';
+import NewDrinkForm from './NewDrinkForm';
 
 class App extends Component {
   constructor(props){
@@ -67,6 +68,10 @@ class App extends Component {
             } />
             <Route path="/drinklist" component={
               () => (<DrinkList user={this.state.user} updateUser={this.getUser} />)
+            } /> 
+            {/*check this*/}
+            <Route path="/newdrink" component={
+              () => (<NewDrinkForm user={this.state.user} updateUser={this.getUser} />)
             } />             
           </div>
         </Router>
