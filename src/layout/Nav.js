@@ -5,7 +5,6 @@ import DrinkList from '../DrinkList';
 class Nav extends Component {
   handleLogout = (e) => {
     e.preventDefault();
-    // TODO: REMOVE LS TOKEN; UPDATE PARENT STATE
     localStorage.removeItem('serverToken');
     this.props.updateUser();
   }
