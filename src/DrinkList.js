@@ -25,7 +25,7 @@ class DrinkList extends Component {
   }	  
 
   getDrinks = () => {
-    fetch(SERVER_URL)
+    fetch(SERVER_URL+'/drinks')
     .then(response => {
       return response.json() 
     })
@@ -36,10 +36,6 @@ class DrinkList extends Component {
     .catch(err => {
       console.log("Error fetching drinks!", err)
     })   
-  }
-
-   changeCurrent = (obj) => {
-    this.setState({ current: obj })
   }
 
 	render(){
