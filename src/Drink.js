@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import SERVER_URL from './constants/server'
+import './App.css'
 
 class Drink extends Component {
 
@@ -23,9 +24,8 @@ class Drink extends Component {
     console.log(this.props)
 		return (
 			<div className="drink">
-				<h3>{this.props.drink.name}</h3>
-				{/*{button}*/}
-				<button onClick={this.deleteDrink}>Delete</button>
+				<h3>{this.props.drink.name.toUpperCase()} - {this.props.drink.brand.toUpperCase()}</h3>
+				<button className="delete-btn" onClick={this.deleteDrink}>Delete</button>
 			</div>
 		)
 	}

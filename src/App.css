@@ -59,3 +59,14 @@ nav a:hover {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }*/
+.drink-list {
+  text-align: center;
+}
+
+.drink {
+  border: solid black 1px;
+  max-width: 350px;
+  display: flex;
+  justify-content: center;
+  margin: 10px;
+}
