@@ -26,6 +26,20 @@ class NewDrinkForm extends Component {
     })
   }
 
+  rerender = () => {
+    fetch(SERVER_URL+'/drinks')
+    .then(response => {
+      return response.json() 
+    })
+    .then(json => {
+      // console.log(json)
+      this.setState({ drinkItem: json })
+    })
+    .catch(err => {
+      console.log("Error fetching drinks!", err)
+    })   
+  }
+
   postDrink = (e) => {
     e.preventDefault()
     const user = JSON.stringify(this.props.user);
@@ -41,8 +55,8 @@ class NewDrinkForm extends Component {
 		.then(response => response.json())
 		.then(json => {
 			// console.log(json)
-      console.log('RUNNING FETCH', this.props)
-			this.props.rerender()
+      //console.log('RUNNING FETCH', this.props)
+			this.rerender()
 		})
 		.catch(err => {
 			console.log('Error posting data!', err)
