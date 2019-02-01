@@ -123,7 +123,7 @@ class NewDrinkForm extends Component {
             <label className="db fw4 lh-copy f6">Image Url</label>
             <input className="pa2 input-reset ba bg-transparent w-100 measure" type="text" name="img"  id="img" onChange={this.storeInput} />
           </div>
-          <input type="hidden" value={user.id} />
+          <input type="hidden" value={this.props.user.id} />
           <div className="mt3"><input className="b mb5 ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6" type="submit" value="Add a Drink" /></div>
         </form>
       </div>

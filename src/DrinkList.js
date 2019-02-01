@@ -10,19 +10,14 @@ class DrinkList extends Component {
 	constructor(){
 	    super()
 	    this.state = {
-	      drinks: [],
-	      current: {},
-	      form: 'new'
+	      drinks: []
 	    }
 	  }
 
   componentDidMount(){
     this.getDrinks()
   }
-
-  changeCurrent = (obj) => {
-    this.setState({ current: obj })
-  }	  
+ 
 
   getDrinks = () => {
     fetch(SERVER_URL+'/drinks')
@@ -40,33 +35,13 @@ class DrinkList extends Component {
 
 	render(){
 		const drinkItem = this.state.drinks.map((drink, i) => {
-      return <Drink key={i} drink={drink} rerender={this.getDrinks} changeCurrent={this.changeCurrent} current={this.state.current} />
+      return <Drink key={i} drink={drink} rerender={this.getDrinks} />
     })
-
-    const more = this.state.current._id ? 
-      <ShowDrink 
-        drink={this.state.current} 
-        key={this.state.current._id} 
-        toggleForm={this.toggleForm} 
-        /> :
-      <h3>What are you in the mood for?</h3>
-    const form = this.state.form === 'new' ? 
-      <NewDrinkForm 
-        user={this.props.user}
-        rerender={this.getDrinks} 
-        /> : 
-      <EditDrinkForm 
-        current={this.state.current} 
-        rerender={this.getDrinks}
-        changeCurrent={this.changeCurrent} 
-        toggleForm={this.toggleForm}
-        />
     return (
         <div className="drink-list">
           <h1>Give me Drinks!</h1>
           <div className="drink-item">
-			        	{drinkItem}
-			          {more} 
+	        	{drinkItem} 
           </div>
           <Link to="/newdrink">Add a Drink!</Link>
         </div>
