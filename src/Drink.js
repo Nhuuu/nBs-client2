@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import SERVER_URL from './constants/server'
+import './App.css'
 
 class Drink extends Component {
 
@@ -20,12 +21,15 @@ class Drink extends Component {
 	}
 
 	render(){
-    console.log(this.props)
+	    console.log(this.props)
+	    const more = (<button onClick={() => this.props.changeCurrent(this.props.drink)}>More</button>)
+		const less = (<button onClick={() => this.props.changeCurrent({})}>Less</button>)
+		let button = this.props.current === this.props.drink ? less : more
 		return (
 			<div className="drink">
-				<h3>{this.props.drink.name}</h3>
-				{/*{button}*/}
-				<button onClick={this.deleteDrink}>Delete</button>
+				<h3>{this.props.drink.name.toUpperCase()} - {this.props.drink.brand.toUpperCase()}</h3>
+				{button}
+				<button className="delete-btn" onClick={this.deleteDrink}>Delete</button>
 			</div>
 		)
 	}
