@@ -10,6 +10,7 @@ import Nav from './layout/Nav';
 import Profile from './Profile';
 import Signup from './auth/Signup';
 import DrinkList from './DrinkList';
+import NewDrinkForm from './NewDrinkForm';
 
 class App extends Component {
   constructor(props){
@@ -37,7 +38,7 @@ class App extends Component {
       }) // Axios works like fetch
       .then(response=>{
         console.log('success', response.data.user);
-        this.setState({ user: response.data.user })
+        this.setState({ user: response.data.user });
       })
       .catch(err=>{
         console.log(`Bad News 🐻, Error looking for token ${err}, ${err.response}`);
@@ -65,9 +66,12 @@ class App extends Component {
             <Route path="/profile" component={
               () => (<Profile user={this.state.user} />)
             } />
-            {/*Check on this route*/}
             <Route path="/drinklist" component={
               () => (<DrinkList user={this.state.user} updateUser={this.getUser} />)
+            } /> 
+            {/*check this*/}
+            <Route path="/newdrink" component={
+              () => (<NewDrinkForm user={this.state.user} updateUser={this.getUser} />)
             } />             
           </div>
         </Router>

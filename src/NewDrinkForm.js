@@ -3,8 +3,8 @@ import SERVER_URL from './constants/server';
 
 class NewDrinkForm extends Component {
 
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
     this.state = {
       name: "",
       brand: "",
@@ -18,18 +18,17 @@ class NewDrinkForm extends Component {
   }
   // Helper function
   storeInput = e => {
-    const user = JSON.stringify(this.props.user);
-
     // Update state to reflect user input
     let newState = e.target.value;
     this.setState({ 
-      user: user.id,
       [e.target.name]: newState 
     })
   }
 
   postDrink = (e) => {
-		e.preventDefault()
+    e.preventDefault()
+    const user = JSON.stringify(this.props.user);
+    this.setState({ user: user.id });
 		// console.log(this.state)
 		fetch(SERVER_URL+'/drinks/new', {
 			method: 'POST',
@@ -50,8 +49,17 @@ class NewDrinkForm extends Component {
 	}
 
 	render() {
-    const user = JSON.stringify(this.props.user);
-		return(
+    // if(this.props && this.props.user){
+      // const propsCopy = Array.from(this.props);
+      console.log(this.props);
+      console.log(this.props.user);
+      console.log(this.props.user ? this.props.user.id : 'PROBLEM');
+    // }
+    // else {
+    //   console.log('NO USER!!!')
+    // }
+
+    return(
       <div>
 			  <form onSubmit={this.postDrink}>
           <div class="mt3">
@@ -82,7 +90,7 @@ class NewDrinkForm extends Component {
             <label class="db fw4 lh-copy f6" for="img">Image Url</label>
             <input class="pa2 input-reset ba bg-transparent w-100 measure" type="text" name="img"  id="img" onChange={this.storeInput} />
           </div>
-          <input type="hidden" value={user.id} />
+          {/* <input type="hidden" value={user.id} /> */}
           <div class="mt3"><input class="b mb5 ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6" type="submit" value="Add a Drink" /></div>
         </form>
       </div>

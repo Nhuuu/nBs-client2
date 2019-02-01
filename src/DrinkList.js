@@ -4,6 +4,7 @@ import Drink from './Drink';
 import ShowDrink from './ShowDrink';
 import EditDrinkForm from './EditDrinkForm';
 import NewDrinkForm from './NewDrinkForm';
+import { Link } from 'react-router-dom';
 
 class DrinkList extends Component {
 	constructor(){
@@ -48,7 +49,7 @@ class DrinkList extends Component {
 
     const more = this.state.current._id ? 
       <ShowDrink 
-        bounty={this.state.current} 
+        drink={this.state.current} 
         key={this.state.current._id} 
         toggleForm={this.toggleForm} 
         /> :
@@ -65,13 +66,14 @@ class DrinkList extends Component {
         toggleForm={this.toggleForm}
         />
     return (
-        <div className="App">
+        <div className="drink-list">
           <h1>Give me Drinks!</h1>
-          <div className="drink-list">
-			        	{/*{drinkItem}*/}
-			          {/*{more}*/}
+          <div className="drink-item">
+			        	{drinkItem}
+			          {/*{more}*/} 
           </div>
-          {form}
+          {/*check it*/}
+          <Link to="/newdrink">Add a Drink!</Link>
         </div>
 		)
 	}
