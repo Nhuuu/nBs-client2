@@ -1,4 +1,5 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
+import EditDrinkForm from './EditDrinkForm'
 
 class ShowDrink extends Component{
 	constructor(){
@@ -15,6 +16,7 @@ class ShowDrink extends Component{
 		return(
 			<div className="show-drink">
 				<h2>{this.state.drink.name}</h2>
+				<EditDrinkForm drink={this.props.drink} />
 			</div>
 		)
 	}
