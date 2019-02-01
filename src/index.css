@@ -15,14 +15,13 @@ body {
 
 .drink-items {
   position: relative;
-  flex: 0 1 66.666666%;
+  flex: 0 1 50%;
   height: 100%;
-  padding: 3.6em 0 0;
+  padding-bottom: 3em;
   overflow-y: scroll;
-  background-color: #f0f0f0;
 }
 
 .show-drink {
-  flex: 1 0 33.333333%;
+  flex: 1 0 50%;
   background-color: #f0f0f0;
 }

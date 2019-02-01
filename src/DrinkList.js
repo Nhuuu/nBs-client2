@@ -53,8 +53,10 @@ class DrinkList extends Component {
 
     return (
         <div className="drink-list">
-          <h1>Give me Drinks!</h1>
-          <Link to="/newdrink">Add a Drink!</Link>
+          <div className="header-bar">
+            <h1>Give me Drinks!</h1>
+            <Link to="/newdrink">Add a Drink!</Link>
+          </div>
           <div className="drink-display">
             <div className="drink-items">
               {drinkItem} 

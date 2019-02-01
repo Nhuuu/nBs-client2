@@ -21,8 +21,8 @@ class Drink extends Component {
 	}
 
 	render(){
-    const more = (<button onClick={() => this.props.changeCurrent(this.props.drink)}>More</button>)
-		const less = (<button onClick={() => this.props.changeCurrent({})}>Less</button>)
+    const more = (<button className="toggle-show" onClick={() => this.props.changeCurrent(this.props.drink)}>More</button>)
+		const less = (<button className="toggle-show" onClick={() => this.props.changeCurrent({})}>Less</button>)
 		let button = this.props.current === this.props.drink ? less : more
 		return (
 			<div className="drink-card">
