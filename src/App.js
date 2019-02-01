@@ -37,7 +37,7 @@ class App extends Component {
       }) // Axios works like fetch
       .then(response=>{
         console.log('success', response.data.user);
-        this.setState({ user: response.data.user })
+        this.setState({ user: response.data.user });
       })
       .catch(err=>{
         console.log(`Bad News 🐻, Error looking for token ${err}, ${err.response}`);
