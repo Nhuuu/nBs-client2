@@ -79,7 +79,7 @@ class NewDrinkForm extends Component {
             <input className="pa2 input-reset ba bg-transparent w-100 measure" type="text" name="subtype"  id="subtype" onChange={this.storeInput} />
           </div>
           <div className="mt3">
-            <label className="db fw4 lh-copy f6"Price</label>
+            <label className="db fw4 lh-copy f6">Price</label>
             <input className="pa2 input-reset ba bg-transparent w-100 measure" type="number" name="price"  id="price" onChange={this.storeInput} />
           </div>
           <div className="mt3">
