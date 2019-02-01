@@ -41,6 +41,7 @@ class NewDrinkForm extends Component {
 		.then(response => response.json())
 		.then(json => {
 			// console.log(json)
+      console.log('RUNNING FETCH', this.props)
 			this.props.rerender()
 		})
 		.catch(err => {

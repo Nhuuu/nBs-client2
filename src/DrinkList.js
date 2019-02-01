@@ -56,7 +56,7 @@ class DrinkList extends Component {
     const form = this.state.form === 'new' ? 
       <NewDrinkForm 
         user={this.props.user}
-        rerender={this.getDrink} 
+        rerender={this.getDrinks} 
         /> : 
       <EditDrinkForm 
         current={this.state.current} 
