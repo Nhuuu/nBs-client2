@@ -3,8 +3,8 @@ import SERVER_URL from './constants/server';
 
 class NewDrinkForm extends Component {
 
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
     this.state = {
       name: "",
       brand: "",
@@ -18,18 +18,17 @@ class NewDrinkForm extends Component {
   }
   // Helper function
   storeInput = e => {
-    const user = JSON.stringify(this.props.user);
-
     // Update state to reflect user input
     let newState = e.target.value;
     this.setState({ 
-      user: user.id,
       [e.target.name]: newState 
     })
   }
 
   postDrink = (e) => {
-		e.preventDefault()
+    e.preventDefault()
+    const user = JSON.stringify(this.props.user);
+    this.setState({ user: user.id });
 		// console.log(this.state)
 		fetch(SERVER_URL+'/drinks/new', {
 			method: 'POST',
@@ -49,8 +48,17 @@ class NewDrinkForm extends Component {
 	}
 
 	render() {
-    const user = JSON.stringify(this.props.user);
-		return(
+    // if(this.props && this.props.user){
+      // const propsCopy = Array.from(this.props);
+      console.log(this.props);
+      console.log(this.props.user);
+      console.log(this.props.user ? this.props.user.id : 'PROBLEM');
+    // }
+    // else {
+    //   console.log('NO USER!!!')
+    // }
+
+    return(
       <div>
 			  <form onSubmit={this.postDrink}>
           <div className="mt3">
