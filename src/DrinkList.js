@@ -34,9 +34,11 @@ class DrinkList extends Component {
   }
 
 	render(){
+
 		const drinkItem = this.state.drinks.map((drink, i) => {
       return <Drink key={i} drink={drink} rerender={this.getDrinks} />
     })
+    
     return (
         <div className="drink-list">
           <h1>Give me Drinks!</h1>
