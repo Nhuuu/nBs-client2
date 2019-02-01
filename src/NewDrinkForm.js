@@ -55,31 +55,31 @@ class NewDrinkForm extends Component {
         <div>
           <form onSubmit={this.postDrink}>
             <div className="mt3">
-              <label className="db fw4 lh-copy f6" for="name">Name</label>
+              <label className="db fw4 lh-copy f6">Name</label>
               <input className="pa2 input-reset ba bg-transparent w-100 measure" type="text" name="name" id="name" onChange={this.storeInput} />
             </div>
             <div className="mt3">
-              <label className="db fw4 lh-copy f6" for="brand">Brand</label>
+              <label className="db fw4 lh-copy f6">Brand</label>
               <input className="pa2 input-reset ba bg-transparent w-100 measure" type="text" name="brand"  id="brand" onChange={this.storeInput} />
             </div>
             <div className="mt3">
-              <label className="db fw4 lh-copy f6" for="type">Type</label>
+              <label className="db fw4 lh-copy f6">Type</label>
               <input className="pa2 input-reset ba bg-transparent w-100 measure" type="text" name="type"  id="type" onChange={this.storeInput} />
             </div>
             <div className="mt3">
-              <label className="db fw4 lh-copy f6" for="subtype">Sub-type</label>
+              <label className="db fw4 lh-copy f6">Sub-type</label>
               <input className="pa2 input-reset ba bg-transparent w-100 measure" type="text" name="subtype"  id="subtype" onChange={this.storeInput} />
             </div>
             <div className="mt3">
-              <label className="db fw4 lh-copy f6" for="price">Price</label>
+              <label className="db fw4 lh-copy f6">Price</label>
               <input className="pa2 input-reset ba bg-transparent w-100 measure" type="number" name="price"  id="price" onChange={this.storeInput} />
             </div>
             <div className="mt3">
-              <label className="db fw4 lh-copy f6" for="desc">Description</label>
+              <label className="db fw4 lh-copy f6">Description</label>
               <input className="pa2 input-reset ba bg-transparent w-100 measure" type="text" name="desc"  id="desc" onChange={this.storeInput} />
             </div>
             <div className="mt3">
-              <label className="db fw4 lh-copy f6" for="img">Image Url</label>
+              <label className="db fw4 lh-copy f6">Image Url</label>
               <input className="pa2 input-reset ba bg-transparent w-100 measure" type="text" name="img"  id="img" onChange={this.storeInput} />
             </div>
             <input type="hidden" value={this.props.user.id} />
