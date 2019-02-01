@@ -26,7 +26,7 @@ class DrinkList extends Component {
     })
     .then(json => {
       // console.log(json)
-      this.setState({ drinkItem: json })
+      this.setState({ drinks: json })
     })
     .catch(err => {
       console.log("Error fetching drinks!", err)
@@ -42,10 +42,11 @@ class DrinkList extends Component {
     return (
         <div className="drink-list">
           <h1>Give me Drinks!</h1>
+          <Link to="/newdrink">Add a Drink!</Link>
           <div className="drink-item">
 	        	{drinkItem} 
           </div>
-          <Link to="/newdrink">Add a Drink!</Link>
+          
         </div>
 		)
 	}
