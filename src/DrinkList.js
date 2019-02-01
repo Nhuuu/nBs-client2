@@ -25,21 +25,17 @@ class DrinkList extends Component {
   }	  
 
   getDrinks = () => {
-    fetch(SERVER_URL)
+    fetch(SERVER_URL+'/drinks')
     .then(response => {
       return response.json() 
     })
     .then(json => {
-      console.log(json)
+      // console.log(json)
       this.setState({ drinkItem: json })
     })
     .catch(err => {
       console.log("Error fetching drinks!", err)
     })   
-  }
-
-   changeCurrent = (obj) => {
-    this.setState({ current: obj })
   }
 
 	render(){
@@ -57,7 +53,7 @@ class DrinkList extends Component {
     const form = this.state.form === 'new' ? 
       <NewDrinkForm 
         user={this.props.user}
-        rerender={this.getDrink} 
+        rerender={this.getDrinks} 
         /> : 
       <EditDrinkForm 
         current={this.state.current} 
@@ -70,9 +66,8 @@ class DrinkList extends Component {
           <h1>Give me Drinks!</h1>
           <div className="drink-item">
 			        	{drinkItem}
-			          {/*{more}*/} 
+			          {more} 
           </div>
-          {/*check it*/}
           <Link to="/newdrink">Add a Drink!</Link>
         </div>
 		)
