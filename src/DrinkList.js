@@ -55,11 +55,13 @@ class DrinkList extends Component {
         <div className="drink-list">
           <h1>Give me Drinks!</h1>
           <Link to="/newdrink">Add a Drink!</Link>
-          <div className="drink-item">
-	        	{drinkItem} 
-          </div>
-          <div className="show-drink">
-            {more}
+          <div className="drink-display">
+            <div className="drink-items">
+              {drinkItem} 
+            </div>
+            <div className="show-drink">
+              {more}
+            </div>
           </div>
         </div>
 		)
