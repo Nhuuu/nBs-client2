@@ -1,4 +1,5 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
+import SERVER_URL from './constants/server';
 
 class EditDrinkForm extends Component {
 
