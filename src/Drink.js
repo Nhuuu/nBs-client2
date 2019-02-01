@@ -5,7 +5,7 @@ import './App.css'
 class Drink extends Component {
 
 	deleteDrink = () => {
-		fetch(SERVER_URL+'/'+this.props.drink._id, {
+		fetch(SERVER_URL+'/drinks/'+this.props.drink._id, {
 			method: "DELETE"
 		})
 		.then(response => {

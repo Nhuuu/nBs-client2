@@ -39,15 +39,18 @@ class DrinkList extends Component {
   }
 
 	render(){
+
 		const drinkItem = this.state.drinks.map((drink, i) => {
       return <Drink key={i} drink={drink} rerender={this.getDrinks} changeCurrent={this.changeCurrent} current={this.state.current} />
     })
+    
     const more = this.state.current._id ? 
           <ShowDrink 
             drink={this.state.current} 
             key={this.state.current._id}  
             /> :
           <h3>What are you in the mood for?</h3>
+
     return (
         <div className="drink-list">
           <h1>Give me Drinks!</h1>
