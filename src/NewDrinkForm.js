@@ -21,6 +21,7 @@ class NewDrinkForm extends Component {
     // Update state to reflect user input
     let newState = e.target.value;
     this.setState({ 
+      user: this.props.user.id,
       [e.target.name]: newState 
     })
   }
@@ -39,7 +40,6 @@ class NewDrinkForm extends Component {
 		})
 		.then(response => response.json())
 		.then(json => {
-			// console.log(json)
 			this.props.rerender()
 		})
 		.catch(err => {
@@ -48,52 +48,48 @@ class NewDrinkForm extends Component {
 	}
 
 	render() {
-    // if(this.props && this.props.user){
-      // const propsCopy = Array.from(this.props);
-      console.log(this.props);
-      console.log(this.props.user);
-      console.log(this.props.user ? this.props.user.id : 'PROBLEM');
-    // }
-    // else {
-    //   console.log('NO USER!!!')
-    // }
+    if(this.props && this.props.user){
+      return(
+        <div>
+          <form onSubmit={this.postDrink}>
+            <div className="mt3">
+              <label className="db fw4 lh-copy f6" for="name">Name</label>
+              <input className="pa2 input-reset ba bg-transparent w-100 measure" type="text" name="name" id="name" onChange={this.storeInput} />
+            </div>
+            <div className="mt3">
+              <label className="db fw4 lh-copy f6" for="brand">Brand</label>
+              <input className="pa2 input-reset ba bg-transparent w-100 measure" type="text" name="brand"  id="brand" onChange={this.storeInput} />
+            </div>
+            <div className="mt3">
+              <label className="db fw4 lh-copy f6" for="type">Type</label>
+              <input className="pa2 input-reset ba bg-transparent w-100 measure" type="text" name="type"  id="type" onChange={this.storeInput} />
+            </div>
+            <div className="mt3">
+              <label className="db fw4 lh-copy f6" for="subtype">Sub-type</label>
+              <input className="pa2 input-reset ba bg-transparent w-100 measure" type="text" name="subtype"  id="subtype" onChange={this.storeInput} />
+            </div>
+            <div className="mt3">
+              <label className="db fw4 lh-copy f6" for="price">Price</label>
+              <input className="pa2 input-reset ba bg-transparent w-100 measure" type="number" name="price"  id="price" onChange={this.storeInput} />
+            </div>
+            <div className="mt3">
+              <label className="db fw4 lh-copy f6" for="desc">Description</label>
+              <input className="pa2 input-reset ba bg-transparent w-100 measure" type="text" name="desc"  id="desc" onChange={this.storeInput} />
+            </div>
+            <div className="mt3">
+              <label className="db fw4 lh-copy f6" for="img">Image Url</label>
+              <input className="pa2 input-reset ba bg-transparent w-100 measure" type="text" name="img"  id="img" onChange={this.storeInput} />
+            </div>
+            <input type="hidden" value={this.props.user.id} />
+            <div className="mt3"><input className="b mb5 ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6" type="submit" value="Add a Drink" /></div>
+          </form>
+        </div>
+      )
+    }
+    else {
+      return <p>Love yourself!</p>
+    }
 
-    return(
-      <div>
-			  <form onSubmit={this.postDrink}>
-          <div className="mt3">
-            <label className="db fw4 lh-copy f6" for="name">Name</label>
-            <input className="pa2 input-reset ba bg-transparent w-100 measure" type="text" name="name" id="name" onChange={this.storeInput} />
-          </div>
-          <div className="mt3">
-            <label className="db fw4 lh-copy f6" for="brand">Brand</label>
-            <input className="pa2 input-reset ba bg-transparent w-100 measure" type="text" name="brand"  id="brand" onChange={this.storeInput} />
-          </div>
-          <div className="mt3">
-            <label className="db fw4 lh-copy f6" for="type">Type</label>
-            <input className="pa2 input-reset ba bg-transparent w-100 measure" type="text" name="type"  id="type" onChange={this.storeInput} />
-          </div>
-          <div className="mt3">
-            <label className="db fw4 lh-copy f6" for="subtype">Sub-type</label>
-            <input className="pa2 input-reset ba bg-transparent w-100 measure" type="text" name="subtype"  id="subtype" onChange={this.storeInput} />
-          </div>
-          <div className="mt3">
-            <label className="db fw4 lh-copy f6" for="price">Price</label>
-            <input className="pa2 input-reset ba bg-transparent w-100 measure" type="number" name="price"  id="price" onChange={this.storeInput} />
-          </div>
-          <div className="mt3">
-            <label className="db fw4 lh-copy f6" for="desc">Description</label>
-            <input className="pa2 input-reset ba bg-transparent w-100 measure" type="text" name="desc"  id="desc" onChange={this.storeInput} />
-          </div>
-          <div className="mt3">
-            <label className="db fw4 lh-copy f6" for="img">Image Url</label>
-            <input className="pa2 input-reset ba bg-transparent w-100 measure" type="text" name="img"  id="img" onChange={this.storeInput} />
-          </div>
-          <input type="hidden" value={user.id} />
-          <div className="mt3"><input className="b mb5 ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6" type="submit" value="Add a Drink" /></div>
-        </form>
-      </div>
-    )
 	}
 }
 
