@@ -13,6 +13,10 @@ body {
   justify-content: space-around;
 }
 
+.header-bar {
+  background-color: #b5c5de;
+}
+
 .drink-items {
   position: relative;
   flex: 0 1 50%;
@@ -24,4 +28,8 @@ body {
 .show-drink {
   flex: 1 0 50%;
   background-color: #f0f0f0;
+}
+
+button {
+  margin: .25em;
 }
