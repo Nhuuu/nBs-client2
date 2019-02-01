@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import SERVER_URL from './constants/server';
+import SERVER_URL from './constants/server'
 
 class NewDrinkForm extends Component {
 
@@ -13,7 +13,8 @@ class NewDrinkForm extends Component {
       subtype: "",
       price: 0,
       desc: "",
-      img: ""
+      img: "",
+      drinks: []
     }
   }
   // Helper function
@@ -33,7 +34,7 @@ class NewDrinkForm extends Component {
     })
     .then(json => {
       // console.log(json)
-      this.setState({ drinkItem: json })
+      this.setState({ drinks: json })
     })
     .catch(err => {
       console.log("Error fetching drinks!", err)

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import DrinkList from '../DrinkList';
 
 class Nav extends Component {
   handleLogout = (e) => {

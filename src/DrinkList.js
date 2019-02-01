@@ -54,7 +54,7 @@ class DrinkList extends Component {
     return (
         <div className="drink-list">
           <h1>Give me Drinks!</h1>
-          <Link to="/newdrink">Add a Drink!</Link>
+          <Link to="/newdrink"> Add a Drink!</Link>
           <div className="drink-item">
 	        	{drinkItem} 
           </div>
