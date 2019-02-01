@@ -40,6 +40,8 @@ class NewDrinkForm extends Component {
 		})
 		.then(response => response.json())
 		.then(json => {
+			// console.log(json)
+      console.log('RUNNING FETCH', this.props)
 			this.props.rerender()
 		})
 		.catch(err => {
@@ -90,6 +92,42 @@ class NewDrinkForm extends Component {
       return <p>Love yourself!</p>
     }
 
+    return(
+      <div>
+			  <form onSubmit={this.postDrink}>
+          <div className="mt3">
+            <label className="db fw4 lh-copy f6">Name</label>
+            <input className="pa2 input-reset ba bg-transparent w-100 measure" type="text" name="name" id="name" onChange={this.storeInput} />
+          </div>
+          <div className="mt3">
+            <label className="db fw4 lh-copy f6">Brand</label>
+            <input className="pa2 input-reset ba bg-transparent w-100 measure" type="text" name="brand"  id="brand" onChange={this.storeInput} />
+          </div>
+          <div className="mt3">
+            <label className="db fw4 lh-copy f6">Type</label>
+            <input className="pa2 input-reset ba bg-transparent w-100 measure" type="text" name="type"  id="type" onChange={this.storeInput} />
+          </div>
+          <div className="mt3">
+            <label className="db fw4 lh-copy f6">Sub-type</label>
+            <input className="pa2 input-reset ba bg-transparent w-100 measure" type="text" name="subtype"  id="subtype" onChange={this.storeInput} />
+          </div>
+          <div className="mt3">
+            <label className="db fw4 lh-copy f6">Price</label>
+            <input className="pa2 input-reset ba bg-transparent w-100 measure" type="number" name="price"  id="price" onChange={this.storeInput} />
+          </div>
+          <div className="mt3">
+            <label className="db fw4 lh-copy f6">Description</label>
+            <input className="pa2 input-reset ba bg-transparent w-100 measure" type="text" name="desc"  id="desc" onChange={this.storeInput} />
+          </div>
+          <div className="mt3">
+            <label className="db fw4 lh-copy f6">Image Url</label>
+            <input className="pa2 input-reset ba bg-transparent w-100 measure" type="text" name="img"  id="img" onChange={this.storeInput} />
+          </div>
+          <input type="hidden" value={user.id} />
+          <div className="mt3"><input className="b mb5 ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6" type="submit" value="Add a Drink" /></div>
+        </form>
+      </div>
+    )
 	}
 }
 
